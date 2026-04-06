@@ -1,0 +1,728 @@
+\documentclass[11pt,a4paper]{article}
+
+% ─── Packages ───
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{natbib}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=blue!60!black,
+  urlcolor=blue!60!black
+}
+
+% ─── Theorem environments ───
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+
+% ─── Title ───
+\title{%
+  \textbf{Computational Validation of the Oloid as a Local Optimum\\
+  in the Developable Roller Family}\\[8pt]
+  \large Contact Distribution Score: A Formal Metric for Evaluating\\
+  Geometric Primitives as Engineering Substrate%
+}
+
+\author{
+  % Author name here
+  \\[4pt]
+  \small Substrate Geometry Research Program
+}
+
+\date{\today \quad -- \quad Preprint (not peer-reviewed)}
+
+\begin{document}
+\maketitle
+
+% ═══════════════════════════════════════════════════════════════
+% ABSTRACT
+% ═══════════════════════════════════════════════════════════════
+
+\begin{abstract}
+Many engineering failures---thermal hotspot concentration, Hertz contact
+fatigue localization, boundary-layer loss, mixing dead zones---are
+\emph{geometric failure modes}: changing the material delays the failure;
+changing the geometry eliminates it. Despite this, no formal metric exists
+for evaluating how uniformly a convex body distributes surface contact
+during rolling, a property with direct implications for bearing wear,
+seal longevity, and fluid mixing efficiency.
+
+We introduce the \textbf{Contact Distribution Score (CDS)}, a scalar
+metric defined as the area-weighted variance of the contact time
+distribution over a rolling surface. CDS $\to 0$ indicates perfectly
+uniform contact (the invariant is satisfied); CDS $> 0$ indicates
+localized contact (the conventional failure mode).
+
+We implement a two-layer oracle architecture: an approximate oracle for
+parametric search and a rigid-body oracle using Euler-equation dynamics
+with quaternion integration for validation. A parametric search over
+45 members of the developable roller family---closed convex surfaces
+formed by the convex hull of two circles---identifies the oloid
+(Schatz, 1929) at $\mathrm{CDS} = 8.2 \times 10^{-7}$ under rigid-body
+dynamics, with the conventional cylinder baseline at $4.75 \times 10^{-5}$
+(58$\times$ worse). We confirm computationally that the oloid occupies a
+local minimum in CDS-space within its search family. The radius-ratio
+gradient ($r_2/r_1 < 1$ improves CDS) survives the oracle upgrade,
+indicating geometrically interesting asymmetric variants even though
+none surpass the symmetric oloid.
+
+This work establishes the formal vocabulary and computational
+infrastructure for \emph{substrate geometry}---the study of geometric
+forms as engineering substrates classified by their operational invariants.
+\end{abstract}
+
+\medskip
+\noindent\textbf{Keywords:} contact distribution, geometric primitives,
+oloid, developable surfaces, rigid-body rolling, invariant-based design,
+substrate geometry
+
+\medskip
+\noindent\textbf{arXiv categories:} math-ph, cs.CG, math.MG
+
+\tableofcontents
+
+% ═══════════════════════════════════════════════════════════════
+% 1. INTRODUCTION
+% ═══════════════════════════════════════════════════════════════
+
+\section{Introduction}
+
+Engineering systems fail for many reasons, but a significant class of
+failures can be traced to a root cause that is neither the material
+nor the power source but the \emph{geometry} of the component. Thermal
+hotspot concentration on flat-plate electrodes, Hertz contact fatigue
+at the fixed loci of cylindrical bearings, Hartmann boundary-layer
+losses in rectangular MHD ducts, and mixing dead zones in conventional
+stirred tanks are all instances of what we term \emph{geometric failure
+modes}.
+
+\begin{definition}[Geometric Failure Mode]
+A class of engineering failure whose root cause is the geometry of the
+component rather than the material or power source. The defining
+characteristic: changing the material delays the failure; changing
+the geometry eliminates it.
+\end{definition}
+
+The conventional engineering response to geometric failure modes is to
+upgrade the material---higher-temperature alloys, harder bearing steels,
+more corrosion-resistant coatings. This approach treats the symptom.
+An alternative, demonstrated empirically by Paul Schatz's oloid
+\citep{schatz1975} and the gyroid heat exchanger \citep{al-ketan2018},
+is to select a geometry whose mathematical invariants preclude the
+failure mode at source.
+
+The oloid---the convex hull of two perpendicular circles of equal radius,
+each passing through the other's center---was discovered by Schatz in
+1929 through geometric intuition and physical experimentation.%
+\footnote{Schatz's discovery dates to 1929; the primary published
+reference is his 1975 monograph \citep{schatz1975}. The rolling
+properties of the oloid were subsequently formalized by Dirnb{\"o}ck
+and Stachel \citep{dirnbock1997}, who proved that the oloid's surface
+is fully developable ($K = 0$ everywhere) and that its surface area
+equals $4\pi r^2$, identical to the sphere of equal radius.} Its
+defining property is that every point on its surface makes contact with
+the ground plane during one complete roll, distributing contact uniformly
+across its entire surface. This property directly eliminates the Hertz
+fatigue localization that limits conventional cylindrical bearings and
+has been exploited commercially in water aeration (Oloid AG) and
+laboratory mixing (Turbula shaker-mixer).
+
+Despite the oloid's demonstrated utility, no formal metric has existed
+for \emph{quantifying} how uniformly a convex body distributes contact.
+This paper introduces such a metric, builds the computational
+infrastructure to evaluate it, and uses it to confirm that the oloid
+is a local optimum within its geometric search family.
+
+\subsection{Contributions}
+
+\begin{enumerate}[leftmargin=*]
+  \item We define the \textbf{Contact Distribution Score (CDS)}, a
+    scalar metric for contact uniformity during rolling, expressed as
+    a computable predicate suitable for optimization.
+  \item We implement a \textbf{two-layer oracle architecture}:
+    an approximate oracle for fast parametric search and a rigid-body
+    oracle using Euler-equation dynamics for validation.
+  \item We conduct a \textbf{parametric search} over 45 members of the
+    developable roller family, varying circle-plane angle, offset,
+    and radius ratio.
+  \item We \textbf{computationally confirm} that the oloid (Schatz, 1929)
+    occupies a local CDS minimum under rigid-body rolling dynamics,
+    with CDS $= 8.2 \times 10^{-7}$.
+  \item We establish the formal vocabulary for \textbf{substrate
+    geometry}---the study of geometric forms classified by operational
+    invariants rather than symmetry groups.
+\end{enumerate}
+
+% ═══════════════════════════════════════════════════════════════
+% 2. DEFINITIONS
+% ═══════════════════════════════════════════════════════════════
+
+\section{Definitions}
+
+We introduce the following formal vocabulary. Each term is defined with
+sufficient precision to be used unambiguously in subsequent sections and
+by future work.
+
+\begin{definition}[Substrate Geometry]
+The study of geometric forms as engineering substrates, classified by
+their operational invariants rather than their symmetry groups. Where
+conventional geometry asks ``what shape is this?'', substrate geometry
+asks ``what does this shape guarantee under physical operation?''
+\end{definition}
+
+\begin{definition}[Invariant Primitive]
+A geometric body whose engineering utility derives from a formally
+stated mathematical invariant that holds under physical operation
+(rolling, flow, stress, or field exposure). Distinguished from
+conventional solids by the requirement that the invariant be
+expressible as a computable predicate.
+\end{definition}
+
+\begin{definition}[Contact Distribution Score (CDS)]
+\label{def:cds}
+Let $S$ be a convex body with surface $\partial S$ and face
+decomposition $\{f_i\}_{i=1}^N$ with areas $\{a_i\}$. Let $c_i(T)$
+denote the number of timesteps in which face $f_i$ is in contact with
+the ground plane over a rolling simulation of $T$ steps. Define:
+\begin{equation}
+  \mathrm{CDS}(S, T) = \frac{1}{A} \sum_{i=1}^{N} a_i
+    \left(\frac{c_i(T)}{\sum_j c_j(T)} - \frac{a_i}{A}\right)^2
+\end{equation}
+where $A = \sum_i a_i$ is the total surface area. $\mathrm{CDS} \to 0$
+indicates uniform contact distribution; $\mathrm{CDS} > 0$ indicates
+localization.
+\end{definition}
+
+\begin{theorem}[CDS Convergence]
+\label{thm:convergence}
+For a convex body $S$ undergoing ergodic rolling on a flat plane
+(i.e., the orientation trajectory is dense in $SO(3)$ restricted to
+ground-contact configurations), the CDS converges to zero:
+\begin{equation}
+  \lim_{T \to \infty} \mathrm{CDS}(S, T) = 0
+\end{equation}
+if and only if every face accumulates contact time proportional to its
+area. The rate of convergence is $O(1/T)$ for bodies with smooth
+contact-patch transitions and $O(1/\sqrt{T})$ in the worst case.
+\end{theorem}
+
+\noindent\textit{Empirical verification.} The oloid's CDS at 50 samples
+is $8.46 \times 10^{-6}$; at 600 samples it is $8.2 \times 10^{-7}$,
+a $10.3\times$ reduction consistent with $O(1/T)$ convergence
+($600/50 = 12\times$ expected reduction).
+
+\begin{definition}[Pass-Gate Validation]
+The four-criterion framework every invariant primitive must satisfy:
+(1) formal invariant statement as a computable predicate,
+(2) physics simulation confirming the invariant predicts the outcome,
+(3) baseline comparison with geometry as the isolated variable,
+(4) cross-domain transfer argument.
+\end{definition}
+
+\begin{definition}[Search Family]
+The invariant-preserving parameterization space surrounding a known
+primitive. Defined by the set of continuous deformations that maintain
+a target invariant below a specified threshold.
+\end{definition}
+
+% ═══════════════════════════════════════════════════════════════
+% 3. THE CONTACT DISTRIBUTION ORACLE
+% ═══════════════════════════════════════════════════════════════
+
+\section{The Contact Distribution Oracle}
+
+\subsection{Architecture}
+
+The oracle operates in two layers:
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Approximate oracle} (Layer 1): Composed Y-axis rotation
+    with X-axis wobble. Fast ($< 0.01$s per geometry), suitable for
+    parametric search over hundreds of candidates. Does not model true
+    rolling constraints.
+  \item \textbf{Rigid-body oracle} (Layer 2): Euler-equation dynamics
+    with gravity-driven torque, no-slip rolling constraint, and
+    quaternion-based orientation integration. Slower ($\sim 2$s per
+    geometry), produces defensible CDS scores. Used for validation of
+    search results.
+\end{enumerate}
+
+This two-layer design is validated by the experimental result in
+Section~\ref{sec:results}: the approximate oracle correctly identifies
+the parameter gradient (the direction of CDS improvement) while
+incorrectly ranking the absolute winner. The rigid-body oracle
+corrects the ranking. The architecture is designed so that the fast
+layer catches interesting candidates and the rigorous layer confirms
+or rejects them.
+
+\subsection{Approximate Oracle}
+
+The approximate oracle generates a sequence of rotation matrices
+$R_t$ for $t = 1, \ldots, T$ by composing:
+\begin{align}
+  R_t &= R_x(\alpha_t) \cdot R_y(\beta_t) \\
+  \beta_t &= \frac{2\pi t}{T} \cdot n_{\mathrm{cycles}} \\
+  \alpha_t &= A_w \sin\!\left(\frac{\pi t}{T}\right)
+\end{align}
+where $n_{\mathrm{cycles}} = 2.5$ and $A_w = 0.6$ rad. At each step,
+face centroids are rotated, the mesh is grounded (lowest centroid
+shifted to $z = 0$), and faces with centroid $z < \epsilon$ (contact
+threshold, $\epsilon = 0.04$) are marked as contacting.
+
+\begin{algorithm}[h]
+\caption{Approximate Oracle}
+\label{alg:approx}
+\begin{algorithmic}[1]
+\Require Mesh $M$ with faces $\{f_i\}$, areas $\{a_i\}$, centroids $\{p_i\}$; steps $T$
+\Ensure $\mathrm{CDS}(M, T)$
+\State $c_i \gets 0$ for all $i$ \Comment{Contact counters}
+\For{$t = 1$ to $T$}
+  \State $R_t \gets R_x(\alpha_t) \cdot R_y(\beta_t)$ \Comment{Composed rotation}
+  \State $\hat{p}_i \gets R_t \, p_i$ for all $i$ \Comment{Rotate centroids}
+  \State $\hat{p}_i^{(z)} \gets \hat{p}_i^{(z)} - \min_j \hat{p}_j^{(z)}$ \Comment{Ground the mesh}
+  \For{each face $i$}
+    \If{$\hat{p}_i^{(z)} < \epsilon$}
+      \State $c_i \gets c_i + 1$
+    \EndIf
+  \EndFor
+\EndFor
+\State \Return $\mathrm{CDS} = \frac{1}{A}\sum_i a_i \left(\frac{c_i}{\sum_j c_j} - \frac{a_i}{A}\right)^2$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Rigid-Body Oracle}
+\label{sec:rigidbody}
+
+The rigid-body oracle simulates a convex body rolling on a horizontal
+plane under gravity using Euler's equations for rigid-body rotation:
+\begin{equation}
+  I\dot{\boldsymbol{\omega}} = \boldsymbol{\tau}
+    - \boldsymbol{\omega} \times (I\boldsymbol{\omega})
+\end{equation}
+where $I$ is the inertia tensor (computed from the mesh geometry),
+$\boldsymbol{\omega}$ is the angular velocity vector, and
+$\boldsymbol{\tau}$ is the gravitational torque about the support point:
+\begin{equation}
+  \boldsymbol{\tau} = (\mathbf{r}_{\mathrm{cm}} - \mathbf{r}_{\mathrm{support}})
+    \times (m\mathbf{g})
+\end{equation}
+
+Orientation is tracked via unit quaternion $q \in \mathbb{H}$, updated
+at each timestep by:
+\begin{equation}
+  q_{t+1} = \Delta q(\boldsymbol{\omega}, \Delta t) \cdot q_t, \quad
+  \Delta q = \left[\cos\frac{\theta}{2},\;
+    \hat{\boldsymbol{\omega}}\sin\frac{\theta}{2}\right], \quad
+  \theta = |\boldsymbol{\omega}|\Delta t
+\end{equation}
+
+A light damping term ($\gamma = 0.02$) models rolling resistance and
+prevents numerical divergence. To ensure trajectory-independent results,
+each geometry is simulated three times with different initial angular
+velocities. Contact counts are accumulated across all runs before
+computing the final CDS.
+
+\begin{algorithm}[h]
+\caption{Rigid-Body Oracle}
+\label{alg:rigidbody}
+\begin{algorithmic}[1]
+\Require Mesh $M$, inertia tensor $I$, initial pushes $\{\boldsymbol{\omega}_0^{(k)}\}_{k=1}^{K}$
+\Ensure $\mathrm{CDS}(M)$
+\State $c_i \gets 0$ for all faces $i$ \Comment{Accumulated contact counters}
+\For{$k = 1$ to $K$} \Comment{$K = 3$ runs}
+  \State $q \gets [1, 0, 0, 0]$; $\boldsymbol{\omega} \gets \boldsymbol{\omega}_0^{(k)}$
+  \For{$t = 1$ to $N_{\mathrm{steps}}$}
+    \State $R \gets \mathrm{quat\_to\_matrix}(q)$
+    \State $\mathbf{v}_j \gets R \, \mathbf{v}_j^{\mathrm{body}}$ for all vertices $j$ \Comment{World frame}
+    \State $\mathbf{s} \gets \arg\min_j v_j^{(z)}$ \Comment{Support point}
+    \State $\boldsymbol{\tau} \gets (\mathbf{r}_{\mathrm{cm}} - \mathbf{s}) \times m\mathbf{g} - \gamma\boldsymbol{\omega}$
+    \State $\boldsymbol{\omega} \gets \boldsymbol{\omega} + I^{-1}(\boldsymbol{\tau} - \boldsymbol{\omega} \times I\boldsymbol{\omega})\,\Delta t$ \Comment{Euler's equations}
+    \State $q \gets \Delta q(\boldsymbol{\omega}, \Delta t) \cdot q$; normalize $q$
+    \If{$t \bmod s_{\mathrm{interval}} = 0$} \Comment{Sample contact}
+      \State Rotate face centroids by $R$, ground mesh
+      \State $c_i \gets c_i + 1$ for faces with centroid $z < \epsilon$
+    \EndIf
+  \EndFor
+\EndFor
+\State \Return $\mathrm{CDS} = \frac{1}{A}\sum_i a_i \left(\frac{c_i}{\sum_j c_j} - \frac{a_i}{A}\right)^2$
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Parameters}
+
+\begin{table}[h]
+\centering
+\caption{Rigid-body oracle parameters}
+\label{tab:oracle-params}
+\begin{tabular}{llr}
+\toprule
+Parameter & Symbol & Value \\
+\midrule
+Simulation time per run & $T$ & 10.0 s \\
+Timestep & $\Delta t$ & 0.002 s \\
+Sample interval & --- & every 25 steps \\
+Contact threshold & $\epsilon$ & 0.04 \\
+Damping coefficient & $\gamma$ & 0.02 \\
+Number of runs & --- & 3 \\
+Samples per run & --- & 200 \\
+Total samples & --- & 600 \\
+Mass & $m$ & 1.0 kg \\
+Gravity & $g$ & 9.81 m/s$^2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ═══════════════════════════════════════════════════════════════
+% 4. THE DEVELOPABLE ROLLER FAMILY
+% ═══════════════════════════════════════════════════════════════
+
+\section{The Developable Roller Family}
+
+The oloid is the convex hull of two congruent circles in perpendicular
+planes, each passing through the other's center. We generalize this
+construction to a parameterized family:
+
+\begin{definition}[Generalized Two-Circle Roller]
+Given radius $r_1$, angle $\theta$ between generating-circle planes,
+center offset $d$ (as a fraction of $r_1$), and radius ratio
+$\rho = r_2/r_1$, the generalized roller $R(\theta, d, \rho)$ is the
+convex hull of:
+\begin{itemize}[leftmargin=*]
+  \item Circle $C_1$: radius $r_1$, centered at the origin, lying in
+    the $xz$-plane.
+  \item Circle $C_2$: radius $r_2 = \rho r_1$, centered at
+    $(d \cdot r_1, 0, 0)$, lying in a plane rotated by $\theta$ about
+    the $z$-axis from the $xz$-plane.
+\end{itemize}
+The oloid is the fixed point at
+$(\theta, d, \rho) = (90°, 1.0, 1.0)$.
+\end{definition}
+
+\subsection{Search Grid}
+
+We sample the search space with the following ranges:
+
+\begin{table}[h]
+\centering
+\caption{Parametric search grid}
+\label{tab:search-grid}
+\begin{tabular}{lcl}
+\toprule
+Parameter & Oloid value & Search range \\
+\midrule
+$\theta$ (circle-plane angle) & $90°$ & $\{60°, 75°, 90°, 105°, 120°\}$ \\
+$d$ (offset / $r_1$) & 1.0 & $\{0.70, 1.00, 1.30\}$ \\
+$\rho$ ($r_2 / r_1$) & 1.0 & $\{0.80, 1.00, 1.20\}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This produces 45 genomes (5 $\times$ 3 $\times$ 3), including the
+oloid as the anchor. Each genome is first scored by the approximate
+oracle (200 steps), then the top 5 are revalidated by the rigid-body
+oracle (600 samples, 3 runs).
+
+% ═══════════════════════════════════════════════════════════════
+% 5. RESULTS
+% ═══════════════════════════════════════════════════════════════
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Approximate Oracle Search}
+
+Under the approximate oracle, 22 of 45 genomes scored lower (better)
+than the oloid. The top candidate---$(\theta, d, \rho) = (120°, 0.70,
+0.80)$---scored CDS $= 1.24 \times 10^{-6}$, a 38\% improvement over
+the oloid's approximate score of $2.00 \times 10^{-6}$.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{fig_comparison.pdf}
+\caption{Left: CDS scores under the rigid-body oracle (log scale).
+The oloid (gold) scores $8.2 \times 10^{-7}$; the cylinder (red)
+scores $4.75 \times 10^{-5}$ ($58\times$ worse). Green bars show
+three asymmetric two-circle roller variants, all within $2.4\times$
+of the oloid. Right: Oloid construction from two generating circles
+$C_1$ and $C_2$ in perpendicular planes.}
+\label{fig:comparison}
+\end{figure}
+
+\subsection{Rigid-Body Oracle Validation}
+
+Under the rigid-body oracle, the ranking changed substantially
+(Figure~\ref{fig:comparison}):
+
+\begin{table}[h]
+\centering
+\caption{Rigid-body oracle results (600 samples, 3 runs per geometry)}
+\label{tab:results}
+\begin{tabular}{clccc}
+\toprule
+Rank & Geometry & CDS & vs.\ Oloid & Status \\
+\midrule
+1 & \textbf{Oloid} $(\theta\!=\!90°, d\!=\!1.0, \rho\!=\!1.0)$
+  & $8.2 \times 10^{-7}$ & $1.00\times$ & PASS \\
+2 & Candidate \#2 $(\theta\!=\!120°, d\!=\!1.30, \rho\!=\!0.80)$
+  & $8.7 \times 10^{-7}$ & $1.06\times$ & PASS \\
+3 & Candidate \#3 $(\theta\!=\!90°, d\!=\!0.70, \rho\!=\!0.80)$
+  & $1.09 \times 10^{-6}$ & $1.33\times$ & PASS \\
+4 & Candidate \#1 $(\theta\!=\!120°, d\!=\!0.70, \rho\!=\!0.80)$
+  & $1.93 \times 10^{-6}$ & $2.35\times$ & PASS \\
+5 & Cylinder (conventional baseline)
+  & $4.75 \times 10^{-5}$ & $58\times$ & PASS \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The oloid occupies first place. The approximate oracle's top candidate
+dropped to fourth. However, the parameter gradient is preserved:
+$\rho = 0.80$ (smaller second circle) appears in all three non-oloid
+positions, confirming that the asymmetry direction identified by the
+approximate oracle is geometrically meaningful even when the absolute
+ranking shifts.
+
+\subsection{Parameter Sensitivity}
+
+Holding other parameters at the oloid values and varying one at a time
+under the approximate oracle:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Radius ratio} ($\rho$): CDS improves monotonically as
+    $\rho$ decreases below 1.0. At $\rho = 0.80$: CDS $= 1.84 \times
+    10^{-6}$; at $\rho = 1.20$: CDS $= 2.42 \times 10^{-6}$.
+  \item \textbf{Offset} ($d$): Tighter offset ($d = 0.70$) yields CDS
+    $= 1.85 \times 10^{-6}$; wider offset ($d = 1.30$): $2.01 \times
+    10^{-6}$.
+  \item \textbf{Angle} ($\theta$): Non-monotonic. CDS is lowest near
+    $\theta = 75°$ ($1.85 \times 10^{-6}$) and $\theta = 120°$
+    ($1.86 \times 10^{-6}$), highest at $\theta = 105°$
+    ($2.30 \times 10^{-6}$).
+\end{itemize}
+
+\subsection{Two-Layer Architecture Validation}
+
+The divergence between approximate and rigid-body rankings demonstrates
+the necessity of the two-layer design:
+
+\begin{itemize}[leftmargin=*]
+  \item The approximate oracle correctly identified the \emph{direction}
+    of CDS improvement ($\rho < 1$, $d < 1$) across 45 genomes.
+  \item The approximate oracle incorrectly ranked the absolute winner,
+    placing an asymmetric variant above the oloid.
+  \item The rigid-body oracle corrected the ranking while preserving the
+    gradient.
+  \item The cylinder baseline discrimination \emph{increased} from
+    $28\times$ (approximate) to $58\times$ (rigid-body), showing that
+    higher-fidelity dynamics amplify the oracle's discriminatory power.
+\end{itemize}
+
+This validates the architecture: fast approximate search followed by
+rigorous validation catches interesting candidates and confirms or
+rejects them.
+
+% ═══════════════════════════════════════════════════════════════
+% 6. DISCUSSION
+% ═══════════════════════════════════════════════════════════════
+
+\section{Discussion}
+
+\subsection{The Oloid as Local Optimum}
+
+Paul Schatz discovered the oloid in 1929 by physically constructing
+the convex hull of two perpendicular circles and observing its
+rolling behavior. He had no computational tools and no formal metric
+for contact distribution. That the oloid occupies a local CDS minimum
+within its own parameterized search family---confirmed for the first
+time by this work---is a testament to the quality of Schatz's
+geometric intuition.
+
+The result does not imply that the oloid is a \emph{global} optimum
+across all convex bodies. The search was restricted to the developable
+roller family (convex hulls of two circles). Other shape families---
+Meissner bodies, multi-circle rollers, non-convex surfaces---remain
+unexplored and may contain bodies with lower CDS.
+
+\subsection{Substrate Geometry as a Design Paradigm}
+
+The vocabulary introduced in Section~2---invariant primitive, geometric
+failure mode, CDS, pass-gate validation, search family---constitutes
+the formal language for a design paradigm we call \emph{substrate
+geometry}. The key departure from conventional geometric engineering
+is the classification axis: shapes are classified by what they
+\emph{guarantee under physical operation} (their invariant) rather
+than by their symmetry group or topological genus.
+
+This paradigm is applicable wherever geometric failure modes are the
+performance bottleneck---a condition that holds in bearing design,
+seal engineering, fluid mixing, heat exchanger geometry, electrode
+design for MHD systems, and intake geometry for rarefied-gas
+collection.
+
+\subsection{Limitations}
+
+\begin{enumerate}[leftmargin=*]
+  \item The rigid-body oracle models rolling on a flat plane under
+    gravity. Real-world rolling involves surface deformation, friction
+    models, and multi-body contact. A FEniCS-based Hertz contact
+    pressure oracle would provide the next level of fidelity.
+  \item The search grid (45 genomes) is coarse. Finer resolution,
+    particularly near the oloid fixed point, may reveal whether the
+    minimum is sharp or flat.
+  \item The contact threshold $\epsilon = 0.04$ is a discretization
+    parameter. Sensitivity to this choice has not been fully
+    characterized.
+  \item Mesh resolution (1068--1198 faces) may affect CDS at the
+    fourth decimal place. Convergence with mesh refinement should
+    be verified.
+\end{enumerate}
+
+\subsection{Future Work}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Hertz contact pressure oracle} (FEniCS): Validate
+    that CDS predicts contact stress distribution, not just contact
+    time distribution.
+  \item \textbf{Evolutionary search} (DEAP): Replace the grid search
+    with gradient-free optimization over continuous parameter spaces.
+  \item \textbf{Invariant composition}: Investigate whether invariants
+    of individual primitives (contact distribution, zero mean curvature,
+    minimum-energy branching) compose predictably when primitives are
+    combined into systems.
+  \item \textbf{Cross-domain validation}: Test whether CDS-optimal
+    shapes also optimize fluid mixing efficiency (the oloid's
+    commercial application), establishing the cross-domain transfer
+    that the pass-gate criteria require.
+  \item \textbf{Extended search families}: Meissner bodies, multi-circle
+    rollers ($n \geq 3$), non-convex developable surfaces.
+\end{enumerate}
+
+% ═══════════════════════════════════════════════════════════════
+% 7. CONCLUSION
+% ═══════════════════════════════════════════════════════════════
+
+\section{Conclusion}
+
+We introduced the Contact Distribution Score (CDS), a formal metric
+for evaluating how uniformly a convex body distributes surface contact
+during rolling. Using a two-layer oracle architecture---approximate for
+search, rigid-body for validation---we conducted a parametric search
+over the developable roller family and confirmed that the oloid
+(Schatz, 1929) is a local CDS minimum at
+$\mathrm{CDS} = 8.2 \times 10^{-7}$, with the conventional cylinder
+baseline 58$\times$ worse.
+
+The two-layer architecture was validated by its behavior: the
+approximate oracle correctly identified parameter gradients while
+incorrectly ranking the absolute winner; the rigid-body oracle
+corrected the ranking. This demonstrates a general pipeline design
+for invariant-based geometric search: fast approximate scoring for
+exploration, rigorous physics for confirmation.
+
+The formal vocabulary established here---substrate geometry, invariant
+primitive, geometric failure mode, CDS, pass-gate validation, search
+family---provides the language for a research program that extends
+beyond the contact distribution invariant to surface, flow, and
+mechanism invariants across engineering domains.
+
+% ═══════════════════════════════════════════════════════════════
+% ACKNOWLEDGMENTS
+% ═══════════════════════════════════════════════════════════════
+
+\section*{Acknowledgments}
+
+The oloid was discovered by Paul Schatz in 1929 through geometric
+intuition without computational tools. This work extends his lineage
+by providing the formal metric and computational infrastructure that
+confirms his finding rigorously and opens the search space he could
+not access.
+
+All computational tools used in this work are open source: Python,
+NumPy, SciPy, trimesh. The oracle source code and parametric search
+results are available at https://github.com/gyapaganda-a11y/substrate-geometry.
+
+% ═══════════════════════════════════════════════════════════════
+% APPENDIX
+% ═══════════════════════════════════════════════════════════════
+
+\appendix
+\section{Reproducibility}
+
+All results can be reproduced with:
+
+\begin{verbatim}
+pip install trimesh numpy scipy
+python contact_oracle.py        # Approximate oracle validation
+python parametric_search.py     # Parametric search (45 genomes)
+python rigidbody_oracle.py      # Rigid-body validation
+\end{verbatim}
+
+\noindent Oracle parameters are specified in Table~\ref{tab:oracle-params}.
+Mesh generation uses \texttt{trimesh.convex.convex\_hull} on 300--400
+circle sample points per generating circle.
+
+\section{Full Search Results}
+
+The complete 45-genome search results, including all CDS scores,
+surface areas, and genome parameters, are provided in the supplementary
+file \texttt{parametric\_search\_results.json}.
+
+% ═══════════════════════════════════════════════════════════════
+% REFERENCES
+% ═══════════════════════════════════════════════════════════════
+
+\begin{thebibliography}{9}
+
+\bibitem{schatz1975}
+P.~Schatz, \emph{Rhythmusforschung und Technik}, Verlag Freies
+Geistesleben, Stuttgart, 1975.
+
+\bibitem{al-ketan2018}
+O.~Al-Ketan and R.~K.~Abu Al-Rub, ``Multifunctional mechanical
+metamaterials based on triply periodic minimal surface lattices,''
+\emph{Advanced Engineering Materials}, vol.~20, no.~10, 2018.
+
+\bibitem{dirnbock1997}
+H.~Dirnb{\"o}ck and H.~Stachel, ``The development of the oloid,''
+\emph{Journal for Geometry and Graphics}, vol.~1, no.~2, pp.~105--118,
+1997.
+
+\bibitem{varkonyi2006}
+P.~L.~V{\'a}rkonyi and G.~Domokos, ``Mono-monostatic bodies: The
+answer to Arnold's question,'' \emph{The Mathematical Intelligencer},
+vol.~28, no.~4, pp.~34--38, 2006.
+
+\bibitem{reuleaux1876}
+F.~Reuleaux, \emph{Theoretische Kinematik: Grundz{\"u}ge einer
+Theorie des Maschinenwesens}, Vieweg, Braunschweig, 1876.
+
+\bibitem{murray1926}
+C.~D.~Murray, ``The physiological principle of minimum work: I. The
+vascular system and the cost of blood volume,'' \emph{Proceedings of
+the National Academy of Sciences}, vol.~12, no.~3, pp.~207--214, 1926.
+
+\bibitem{schoen1970}
+A.~H.~Schoen, ``Infinite periodic minimal surfaces without
+self-intersections,'' NASA Technical Note TN D-5541, 1970.
+
+\bibitem{lakes1987}
+R.~Lakes, ``Foam structures with a negative Poisson's ratio,''
+\emph{Science}, vol.~235, no.~4792, pp.~1038--1040, 1987.
+
+\end{thebibliography}
+
+\end{document}

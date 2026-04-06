@@ -1,0 +1,900 @@
+{
+  "metadata": {
+    "program": "Geometric Primitive Synthesis Program",
+    "artifact": "Parametric Search \u2014 Developable Roller Family",
+    "search_family": "developable_roller",
+    "anchor": "Oloid (Schatz, 1929)",
+    "timestamp": "2026-04-06T05:25:13Z",
+    "total_genomes": 45,
+    "valid_genomes": 45
+  },
+  "search_results": [
+    {
+      "genome": {
+        "theta": 120,
+        "offset": 0.7,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=120\u00b0 off=0.70 r2/r1=0.80 n=2",
+      "cds": 1.235536588221475e-06,
+      "invariant_passed": true,
+      "surface_area": 9.024445320091008,
+      "n_faces": 1068,
+      "contact_cv": 1.1153990384896553,
+      "max_contact_ratio": 3.3057705063011276,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 120,
+        "offset": 1.3,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=120\u00b0 off=1.30 r2/r1=0.80 n=2",
+      "cds": 1.4244342526905123e-06,
+      "invariant_passed": true,
+      "surface_area": 11.341515386738337,
+      "n_faces": 930,
+      "contact_cv": 1.108239013003881,
+      "max_contact_ratio": 4.160583941605839,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 120,
+        "offset": 1.0,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=120\u00b0 off=1.00 r2/r1=0.80 n=2",
+      "cds": 1.4828766361654382e-06,
+      "invariant_passed": true,
+      "surface_area": 10.101954799873774,
+      "n_faces": 942,
+      "contact_cv": 1.1954654924441883,
+      "max_contact_ratio": 4.936636493568366,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 90,
+        "offset": 0.7,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=90\u00b0 off=0.70 r2/r1=0.80 n=2",
+      "cds": 1.5979080362808593e-06,
+      "invariant_passed": true,
+      "surface_area": 9.347640300463704,
+      "n_faces": 1068,
+      "contact_cv": 1.0756601937278667,
+      "max_contact_ratio": 3.392784206943499,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 105,
+        "offset": 0.7,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=105\u00b0 off=0.70 r2/r1=0.80 n=2",
+      "cds": 1.6108570605642408e-06,
+      "invariant_passed": true,
+      "surface_area": 9.263690339934437,
+      "n_faces": 1068,
+      "contact_cv": 1.1825882171104083,
+      "max_contact_ratio": 3.4427814874510707,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 120,
+        "offset": 0.7,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=120\u00b0 off=0.70 r2/r1=1.00 n=2",
+      "cds": 1.6280940342307922e-06,
+      "invariant_passed": true,
+      "surface_area": 10.990544582902311,
+      "n_faces": 968,
+      "contact_cv": 1.1075268994968512,
+      "max_contact_ratio": 3.592281048985651,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 75,
+        "offset": 0.7,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=75\u00b0 off=0.70 r2/r1=0.80 n=2",
+      "cds": 1.671474920074042e-06,
+      "invariant_passed": true,
+      "surface_area": 9.263690339934437,
+      "n_faces": 1068,
+      "contact_cv": 0.9340099247574458,
+      "max_contact_ratio": 3.1691394658753707,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 120,
+        "offset": 1.3,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=120\u00b0 off=1.30 r2/r1=1.00 n=2",
+      "cds": 1.7092255352309622e-06,
+      "invariant_passed": true,
+      "surface_area": 13.584500889316265,
+      "n_faces": 898,
+      "contact_cv": 1.13162283510029,
+      "max_contact_ratio": 4.477943996931339,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 90,
+        "offset": 1.3,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=90\u00b0 off=1.30 r2/r1=0.80 n=2",
+      "cds": 1.8069302988149592e-06,
+      "invariant_passed": true,
+      "surface_area": 11.701869960827093,
+      "n_faces": 930,
+      "contact_cv": 1.15763449945741,
+      "max_contact_ratio": 3.9784946236559136,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 75,
+        "offset": 1.3,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=75\u00b0 off=1.30 r2/r1=1.20 n=2",
+      "cds": 1.8074029126649647e-06,
+      "invariant_passed": true,
+      "surface_area": 16.769725763487685,
+      "n_faces": 870,
+      "contact_cv": 1.174922742432582,
+      "max_contact_ratio": 6.047213114754099,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 75,
+        "offset": 0.7,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=75\u00b0 off=0.70 r2/r1=1.00 n=2",
+      "cds": 1.8227559955142996e-06,
+      "invariant_passed": true,
+      "surface_area": 11.317470170474866,
+      "n_faces": 968,
+      "contact_cv": 1.0340057098325346,
+      "max_contact_ratio": 3.706918560122543,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 90,
+        "offset": 1.0,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=90\u00b0 off=1.00 r2/r1=0.80 n=2",
+      "cds": 1.8445717352693914e-06,
+      "invariant_passed": true,
+      "surface_area": 10.423510498330902,
+      "n_faces": 942,
+      "contact_cv": 1.1237898855840596,
+      "max_contact_ratio": 3.7619808306709266,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 90,
+        "offset": 0.7,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=90\u00b0 off=0.70 r2/r1=1.00 n=2",
+      "cds": 1.8529297637829942e-06,
+      "invariant_passed": true,
+      "surface_area": 11.430950170724437,
+      "n_faces": 968,
+      "contact_cv": 1.152172813210511,
+      "max_contact_ratio": 3.9641668799590484,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 75,
+        "offset": 1.0,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=75\u00b0 off=1.00 r2/r1=1.00 n=2",
+      "cds": 1.8541645928889762e-06,
+      "invariant_passed": true,
+      "surface_area": 12.54275546260728,
+      "n_faces": 898,
+      "contact_cv": 0.9225817665598104,
+      "max_contact_ratio": 3.2658376349131863,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 75,
+        "offset": 1.0,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=75\u00b0 off=1.00 r2/r1=0.80 n=2",
+      "cds": 1.8558310977080125e-06,
+      "invariant_passed": true,
+      "surface_area": 10.340028313996466,
+      "n_faces": 942,
+      "contact_cv": 0.8814005214397955,
+      "max_contact_ratio": 3.113551551338096,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 75,
+        "offset": 1.3,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=75\u00b0 off=1.30 r2/r1=1.00 n=2",
+      "cds": 1.8571098989892134e-06,
+      "invariant_passed": true,
+      "surface_area": 13.953088323418608,
+      "n_faces": 898,
+      "contact_cv": 0.942584558519617,
+      "max_contact_ratio": 3.810466760961811,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 120,
+        "offset": 1.0,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=120\u00b0 off=1.00 r2/r1=1.00 n=2",
+      "cds": 1.859423600487236e-06,
+      "invariant_passed": true,
+      "surface_area": 12.208999556500007,
+      "n_faces": 898,
+      "contact_cv": 1.2069006977493983,
+      "max_contact_ratio": 5.102931680227302,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 75,
+        "offset": 1.3,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=75\u00b0 off=1.30 r2/r1=0.80 n=2",
+      "cds": 1.8786364702647188e-06,
+      "invariant_passed": true,
+      "surface_area": 11.608291638437189,
+      "n_faces": 930,
+      "contact_cv": 0.9129305213613635,
+      "max_contact_ratio": 3.4040262676283777,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 75,
+        "offset": 1.0,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=75\u00b0 off=1.00 r2/r1=1.20 n=2",
+      "cds": 1.9555026912599907e-06,
+      "invariant_passed": true,
+      "surface_area": 15.252481613236895,
+      "n_faces": 862,
+      "contact_cv": 1.0223274963056308,
+      "max_contact_ratio": 4.935742460872885,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 60,
+        "offset": 1.0,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=60\u00b0 off=1.00 r2/r1=1.00 n=2",
+      "cds": 1.9719390512629495e-06,
+      "invariant_passed": true,
+      "surface_area": 12.208999556500007,
+      "n_faces": 898,
+      "contact_cv": 0.8923254329441384,
+      "max_contact_ratio": 3.3685866408518876,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 60,
+        "offset": 1.3,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=60\u00b0 off=1.30 r2/r1=1.00 n=2",
+      "cds": 1.9722693726315986e-06,
+      "invariant_passed": true,
+      "surface_area": 13.584500889316265,
+      "n_faces": 898,
+      "contact_cv": 1.0855032104271378,
+      "max_contact_ratio": 4.426370918052989,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 60,
+        "offset": 0.7,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=60\u00b0 off=0.70 r2/r1=0.80 n=2",
+      "cds": 1.9776044572729046e-06,
+      "invariant_passed": true,
+      "surface_area": 9.024445320091008,
+      "n_faces": 1068,
+      "contact_cv": 0.8930129388783357,
+      "max_contact_ratio": 2.9382514774811495,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 90,
+        "offset": 1.0,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=90\u00b0 off=1.00 r2/r1=1.00 n=2",
+      "cds": 1.9986024711065724e-06,
+      "invariant_passed": true,
+      "surface_area": 12.658741539243714,
+      "n_faces": 898,
+      "contact_cv": 1.1834594475182143,
+      "max_contact_ratio": 5.108209437621203,
+      "is_oloid": true,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 90,
+        "offset": 1.3,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=90\u00b0 off=1.30 r2/r1=1.00 n=2",
+      "cds": 2.007080447665843e-06,
+      "invariant_passed": true,
+      "surface_area": 14.08154054835411,
+      "n_faces": 898,
+      "contact_cv": 1.2022640002547802,
+      "max_contact_ratio": 4.3315562325463315,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 60,
+        "offset": 1.3,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=60\u00b0 off=1.30 r2/r1=1.20 n=2",
+      "cds": 2.0094684322604243e-06,
+      "invariant_passed": true,
+      "surface_area": 16.296454151064133,
+      "n_faces": 870,
+      "contact_cv": 1.1317693389344399,
+      "max_contact_ratio": 4.442951216234377,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 60,
+        "offset": 0.7,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=60\u00b0 off=0.70 r2/r1=1.00 n=2",
+      "cds": 2.0121909225089972e-06,
+      "invariant_passed": true,
+      "surface_area": 10.990544582902311,
+      "n_faces": 968,
+      "contact_cv": 0.9625110509455176,
+      "max_contact_ratio": 3.3142577647346543,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 105,
+        "offset": 0.7,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=105\u00b0 off=0.70 r2/r1=1.00 n=2",
+      "cds": 2.0156933226154767e-06,
+      "invariant_passed": true,
+      "surface_area": 11.317470170474866,
+      "n_faces": 968,
+      "contact_cv": 1.2838398145248806,
+      "max_contact_ratio": 4.107309061045716,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 75,
+        "offset": 0.7,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=75\u00b0 off=0.70 r2/r1=1.20 n=2",
+      "cds": 2.0286015047709735e-06,
+      "invariant_passed": true,
+      "surface_area": 13.937932419836187,
+      "n_faces": 908,
+      "contact_cv": 1.0893419394287185,
+      "max_contact_ratio": 3.6786811958647667,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 105,
+        "offset": 1.3,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=105\u00b0 off=1.30 r2/r1=0.80 n=2",
+      "cds": 2.038944424878517e-06,
+      "invariant_passed": true,
+      "surface_area": 11.608291638437189,
+      "n_faces": 930,
+      "contact_cv": 1.213869732297197,
+      "max_contact_ratio": 4.413235859946132,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 120,
+        "offset": 0.7,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=120\u00b0 off=0.70 r2/r1=1.20 n=2",
+      "cds": 2.063319496293565e-06,
+      "invariant_passed": true,
+      "surface_area": 13.529909220369493,
+      "n_faces": 908,
+      "contact_cv": 1.130555522287582,
+      "max_contact_ratio": 3.831745167438062,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 105,
+        "offset": 1.0,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=105\u00b0 off=1.00 r2/r1=0.80 n=2",
+      "cds": 2.067656190014253e-06,
+      "invariant_passed": true,
+      "surface_area": 10.340028313996465,
+      "n_faces": 942,
+      "contact_cv": 1.307653182285146,
+      "max_contact_ratio": 5.120890499611701,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 60,
+        "offset": 0.7,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=60\u00b0 off=0.70 r2/r1=1.20 n=2",
+      "cds": 2.101898401571277e-06,
+      "invariant_passed": true,
+      "surface_area": 13.529909220369492,
+      "n_faces": 908,
+      "contact_cv": 1.0066021273715025,
+      "max_contact_ratio": 3.227782335247471,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 60,
+        "offset": 1.3,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=60\u00b0 off=1.30 r2/r1=0.80 n=2",
+      "cds": 2.1117384559026664e-06,
+      "invariant_passed": true,
+      "surface_area": 11.341515386738337,
+      "n_faces": 930,
+      "contact_cv": 0.8554137093498263,
+      "max_contact_ratio": 2.8805309734513274,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 60,
+        "offset": 1.0,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=60\u00b0 off=1.00 r2/r1=0.80 n=2",
+      "cds": 2.116178679325209e-06,
+      "invariant_passed": true,
+      "surface_area": 10.101954799873774,
+      "n_faces": 942,
+      "contact_cv": 0.8800116866630028,
+      "max_contact_ratio": 3.4513156433884755,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 90,
+        "offset": 0.7,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=90\u00b0 off=0.70 r2/r1=1.20 n=2",
+      "cds": 2.157257859054814e-06,
+      "invariant_passed": true,
+      "surface_area": 14.078586610628175,
+      "n_faces": 908,
+      "contact_cv": 1.2004209277791276,
+      "max_contact_ratio": 4.1628230063906635,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 105,
+        "offset": 1.3,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=105\u00b0 off=1.30 r2/r1=1.00 n=2",
+      "cds": 2.1822846170382688e-06,
+      "invariant_passed": true,
+      "surface_area": 13.953088323418607,
+      "n_faces": 898,
+      "contact_cv": 1.2550054935766264,
+      "max_contact_ratio": 5.115031953320367,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 90,
+        "offset": 1.3,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=90\u00b0 off=1.30 r2/r1=1.20 n=2",
+      "cds": 2.246373191740705e-06,
+      "invariant_passed": true,
+      "surface_area": 16.933695472749456,
+      "n_faces": 870,
+      "contact_cv": 1.2764984731822502,
+      "max_contact_ratio": 5.470169065250804,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 105,
+        "offset": 1.0,
+        "r_ratio": 1.0,
+        "n_circles": 2
+      },
+      "label": "th=105\u00b0 off=1.00 r2/r1=1.00 n=2",
+      "cds": 2.2976901576405244e-06,
+      "invariant_passed": true,
+      "surface_area": 12.54275546260728,
+      "n_faces": 898,
+      "contact_cv": 1.3537302539621514,
+      "max_contact_ratio": 5.558025038683359,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 120,
+        "offset": 1.3,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=120\u00b0 off=1.30 r2/r1=1.20 n=2",
+      "cds": 2.29985569855443e-06,
+      "invariant_passed": true,
+      "surface_area": 16.296454151064133,
+      "n_faces": 870,
+      "contact_cv": 1.164733324539317,
+      "max_contact_ratio": 4.907815079801871,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 60,
+        "offset": 1.0,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=60\u00b0 off=1.00 r2/r1=1.20 n=2",
+      "cds": 2.337630287810285e-06,
+      "invariant_passed": true,
+      "surface_area": 14.823935072414514,
+      "n_faces": 862,
+      "contact_cv": 0.9844371651953081,
+      "max_contact_ratio": 3.8978587578135393,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 105,
+        "offset": 0.7,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=105\u00b0 off=0.70 r2/r1=1.20 n=2",
+      "cds": 2.402171094225209e-06,
+      "invariant_passed": true,
+      "surface_area": 13.937932419836187,
+      "n_faces": 908,
+      "contact_cv": 1.3137970739772273,
+      "max_contact_ratio": 4.3199524234314595,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 90,
+        "offset": 1.0,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=90\u00b0 off=1.00 r2/r1=1.20 n=2",
+      "cds": 2.4155004947446566e-06,
+      "invariant_passed": true,
+      "surface_area": 15.400389892064522,
+      "n_faces": 862,
+      "contact_cv": 1.4132748526095331,
+      "max_contact_ratio": 6.065296932169996,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 120,
+        "offset": 1.0,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=120\u00b0 off=1.00 r2/r1=1.20 n=2",
+      "cds": 2.4655624999550743e-06,
+      "invariant_passed": true,
+      "surface_area": 14.823935072414514,
+      "n_faces": 862,
+      "contact_cv": 1.1745319863252657,
+      "max_contact_ratio": 5.216338880484114,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 105,
+        "offset": 1.3,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=105\u00b0 off=1.30 r2/r1=1.20 n=2",
+      "cds": 2.6607295305492983e-06,
+      "invariant_passed": true,
+      "surface_area": 16.769725763487685,
+      "n_faces": 870,
+      "contact_cv": 1.3796526012693615,
+      "max_contact_ratio": 5.487310406968013,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    },
+    {
+      "genome": {
+        "theta": 105,
+        "offset": 1.0,
+        "r_ratio": 1.2,
+        "n_circles": 2
+      },
+      "label": "th=105\u00b0 off=1.00 r2/r1=1.20 n=2",
+      "cds": 2.8171716251284485e-06,
+      "invariant_passed": true,
+      "surface_area": 15.252481613236897,
+      "n_faces": 862,
+      "contact_cv": 1.3762114991931962,
+      "max_contact_ratio": 5.941264608930177,
+      "is_oloid": false,
+      "is_valid": true,
+      "error": null
+    }
+  ],
+  "revalidated": [
+    {
+      "genome": {
+        "theta": 120,
+        "offset": 0.7,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=120\u00b0 off=0.70 r2/r1=0.80 n=2",
+      "cds": 1.2278676030384562e-06,
+      "invariant_passed": true,
+      "surface_area": 9.024445320091008,
+      "contact_cv": 1.1128589498412382,
+      "max_contact_ratio": 3.231825226954019,
+      "is_oloid": false
+    },
+    {
+      "genome": {
+        "theta": 120,
+        "offset": 1.3,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=120\u00b0 off=1.30 r2/r1=0.80 n=2",
+      "cds": 1.4282063531470418e-06,
+      "invariant_passed": true,
+      "surface_area": 11.341515386738337,
+      "contact_cv": 1.1111895150007405,
+      "max_contact_ratio": 4.13024681653828,
+      "is_oloid": false
+    },
+    {
+      "genome": {
+        "theta": 120,
+        "offset": 1.0,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=120\u00b0 off=1.00 r2/r1=0.80 n=2",
+      "cds": 1.4806804078614774e-06,
+      "invariant_passed": true,
+      "surface_area": 10.101954799873774,
+      "contact_cv": 1.1951807851846592,
+      "max_contact_ratio": 4.8982653911800895,
+      "is_oloid": false
+    },
+    {
+      "genome": {
+        "theta": 90,
+        "offset": 0.7,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=90\u00b0 off=0.70 r2/r1=0.80 n=2",
+      "cds": 1.5983011416822978e-06,
+      "invariant_passed": true,
+      "surface_area": 9.347640300463704,
+      "contact_cv": 1.0754759517184695,
+      "max_contact_ratio": 3.390988811611733,
+      "is_oloid": false
+    },
+    {
+      "genome": {
+        "theta": 105,
+        "offset": 0.7,
+        "r_ratio": 0.8,
+        "n_circles": 2
+      },
+      "label": "th=105\u00b0 off=0.70 r2/r1=0.80 n=2",
+      "cds": 1.6098533591880849e-06,
+      "invariant_passed": true,
+      "surface_area": 9.263690339934437,
+      "contact_cv": 1.1825839510032925,
+      "max_contact_ratio": 3.370900692840647,
+      "is_oloid": false
+    }
+  ]
+}
