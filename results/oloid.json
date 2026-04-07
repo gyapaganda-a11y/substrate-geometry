@@ -1,0 +1,71 @@
+{
+  "name": "Oloid",
+  "invariant_name": "contact_distribution",
+  "invariant_description": "Every point on the surface accumulates contact time proportional to its area during rolling.",
+  "predicate": "\u2200p \u2208 \u2202S: lim_{T\u2192\u221e} (1/T) \u222b\u2080\u1d40 \ud835\udfd9[p \u2208 C(t)] dt = 1/|\u2202S|",
+  "mesh_source": "generated (convex hull of two circles, r=1.0, n=400)",
+  "n_faces": 1198,
+  "surface_area": 12.659005941502718,
+  "physics_mode": "rolling_plane",
+  "constraint": "Rigid body rolling on a flat horizontal plane under gravity. Euler-equation dynamics, quaternion integration, no-slip constraint.",
+  "material": "Mild steel",
+  "load": 100.0,
+  "environment": "standard",
+  "invariant_score": 8.196498064782329e-07,
+  "invariant_satisfied": true,
+  "invariant_threshold": 0.0001,
+  "vector": {
+    "CDS": {
+      "name": "CDS",
+      "value": 8.196498064782329e-07,
+      "confidence": 0.0,
+      "note": "contact time distribution"
+    },
+    "SDS": {
+      "name": "SDS",
+      "value": 8.068814575116581e-07,
+      "confidence": 0.0,
+      "note": "Hertz stress distribution"
+    },
+    "TDS": {
+      "name": "TDS",
+      "value": 7.765472922290093e-07,
+      "confidence": 0.0,
+      "note": "frictional thermal distribution"
+    },
+    "WDS_vol": {
+      "name": "WDS_vol",
+      "value": 7.765472922290093e-07,
+      "confidence": 0.0,
+      "note": "Archard wear volume distribution"
+    },
+    "WDS_depth": {
+      "name": "WDS_depth",
+      "value": 1.1545918864808398e-06,
+      "confidence": 0.0,
+      "note": "wear depth (area-normalized)"
+    }
+  },
+  "unique_score": {
+    "name": "contact_distribution",
+    "value": 8.196498064782329e-07,
+    "confidence": 0.0,
+    "note": "threshold=0.0001"
+  },
+  "baseline_name": "Cylinder (conventional)",
+  "baseline_invariant_score": 4.75079220547134e-05,
+  "baseline_ratios": {
+    "CDS": 58.0,
+    "SDS": 58.0,
+    "TDS": 67.9,
+    "WDS_vol": 67.9,
+    "WDS_depth": 46.2,
+    "invariant": 58.0
+  },
+  "first_failure_cycles": "inf",
+  "mean_failure_cycles": "inf",
+  "manufacturability": "machinable, 3D-printable",
+  "recommended_validation": "Rolling contact fatigue test on machined specimens, thermocouple array for thermal distribution measurement",
+  "elapsed_seconds": 4.150806903839111,
+  "timestamp": "2026-04-06T14:39:31Z"
+}

@@ -1,0 +1,71 @@
+{
+  "name": "Meissner Type 2 (matched)",
+  "invariant_name": "contact_distribution",
+  "invariant_description": "Every point on the surface accumulates contact time proportional to its area during rolling.",
+  "predicate": "\u2200p \u2208 \u2202S: lim_{T\u2192\u221e} (1/T) \u222b\u2080\u1d40 \ud835\udfd9[p \u2208 C(t)] dt = 1/|\u2202S|",
+  "mesh_source": "Thingiverse STL, decimated to 1200 faces",
+  "n_faces": 1200,
+  "surface_area": 11.71526120388522,
+  "physics_mode": "rolling_plane",
+  "constraint": "Rigid body rolling on a flat horizontal plane under gravity. Euler-equation dynamics, quaternion integration, no-slip constraint.",
+  "material": "Mild steel",
+  "load": 100.0,
+  "environment": "standard",
+  "invariant_score": 2.7570920552893883e-06,
+  "invariant_satisfied": true,
+  "invariant_threshold": 0.0001,
+  "vector": {
+    "CDS": {
+      "name": "CDS",
+      "value": 2.7570920552893883e-06,
+      "confidence": 0.0,
+      "note": "contact time distribution"
+    },
+    "SDS": {
+      "name": "SDS",
+      "value": 3.3865546088413133e-06,
+      "confidence": 0.0,
+      "note": "Hertz stress distribution"
+    },
+    "TDS": {
+      "name": "TDS",
+      "value": 3.5676909574621936e-06,
+      "confidence": 0.0,
+      "note": "frictional thermal distribution"
+    },
+    "WDS_vol": {
+      "name": "WDS_vol",
+      "value": 3.5676909574621936e-06,
+      "confidence": 0.0,
+      "note": "Archard wear volume distribution"
+    },
+    "WDS_depth": {
+      "name": "WDS_depth",
+      "value": 4.20709058926021e-06,
+      "confidence": 0.0,
+      "note": "wear depth (area-normalized)"
+    }
+  },
+  "unique_score": {
+    "name": "contact_distribution",
+    "value": 2.7570920552893883e-06,
+    "confidence": 0.0,
+    "note": "threshold=0.0001"
+  },
+  "baseline_name": "Cylinder (conventional)",
+  "baseline_invariant_score": 4.75079220547134e-05,
+  "baseline_ratios": {
+    "CDS": 17.2,
+    "SDS": 13.8,
+    "TDS": 14.8,
+    "WDS_vol": 14.8,
+    "WDS_depth": 12.7,
+    "invariant": 17.2
+  },
+  "first_failure_cycles": "inf",
+  "mean_failure_cycles": "inf",
+  "manufacturability": "unknown",
+  "recommended_validation": "",
+  "elapsed_seconds": 3.993948221206665,
+  "timestamp": "2026-04-06T15:01:05Z"
+}

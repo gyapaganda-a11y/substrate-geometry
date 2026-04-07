@@ -1,0 +1,77 @@
+{
+  "name": "Meissner Type 1 (matched)",
+  "invariant_name": "contact_distribution",
+  "invariant_description": "Every point on the surface accumulates contact time proportional to its area during rolling.",
+  "predicate": "\u2200p \u2208 \u2202S: lim_{T\u2192\u221e} (1/T) \u222b\u2080\u1d40 \ud835\udfd9[p \u2208 C(t)] dt = 1/|\u2202S|",
+  "mesh_source": "Thingiverse STL, decimated to 1200 faces",
+  "n_faces": 1200,
+  "surface_area": 11.707643501544366,
+  "physics_mode": "rolling_plane",
+  "constraint": "Rigid body rolling on a flat horizontal plane under gravity. Euler-equation dynamics, quaternion integration, no-slip constraint.",
+  "material": "Mild steel",
+  "load": 100.0,
+  "environment": "standard",
+  "invariant_score": 3.0735479593936373e-06,
+  "invariant_satisfied": true,
+  "invariant_threshold": 0.0001,
+  "vector": {
+    "CDS": {
+      "name": "CDS",
+      "value": 3.0735479593936373e-06,
+      "confidence": 0.0,
+      "note": "contact time distribution"
+    },
+    "SDS": {
+      "name": "SDS",
+      "value": 3.8067634982631033e-06,
+      "confidence": 0.0,
+      "note": "Hertz stress distribution"
+    },
+    "TDS": {
+      "name": "TDS",
+      "value": 4.036303680367902e-06,
+      "confidence": 0.0,
+      "note": "frictional thermal distribution"
+    },
+    "FDS": {
+      "name": "FDS",
+      "value": 1.998425199566311e-05,
+      "confidence": 0.0,
+      "note": "Basquin fatigue damage distribution"
+    },
+    "WDS_vol": {
+      "name": "WDS_vol",
+      "value": 4.036303680367902e-06,
+      "confidence": 0.0,
+      "note": "Archard wear volume distribution"
+    },
+    "WDS_depth": {
+      "name": "WDS_depth",
+      "value": 4.60292126267434e-06,
+      "confidence": 0.0,
+      "note": "wear depth (area-normalized)"
+    }
+  },
+  "unique_score": {
+    "name": "contact_distribution",
+    "value": 3.0735479593936373e-06,
+    "confidence": 0.0,
+    "note": "threshold=0.0001"
+  },
+  "baseline_name": "Cylinder (conventional)",
+  "baseline_invariant_score": 4.75079220547134e-05,
+  "baseline_ratios": {
+    "CDS": 15.5,
+    "SDS": 12.3,
+    "TDS": 13.1,
+    "WDS_vol": 13.1,
+    "WDS_depth": 11.6,
+    "invariant": 15.5
+  },
+  "first_failure_cycles": 1695.603971998549,
+  "mean_failure_cycles": 100228.06990372918,
+  "manufacturability": "unknown",
+  "recommended_validation": "",
+  "elapsed_seconds": 4.063912868499756,
+  "timestamp": "2026-04-06T15:01:01Z"
+}
