@@ -4,6 +4,19 @@
 
 A formal framework for evaluating geometric primitives as engineering substrates, classified by their operational invariants rather than symmetry groups.
 
+## Research Program
+
+This repository ships the seven frozen oracle artifacts behind **Paper I** (oloid validation, arXiv:2604.12238). The broader program covers four published or in-submission papers across rolling primitives, thermal substrates, methodology hardening, and mono-monostatic / constant-width primitives.
+
+- **Paper I:** *Computational Validation of the Oloid as a Local Optimum in the Developable Roller Family.* arXiv:2604.12238. Backed by the seven oracles in this repo.
+- **Paper II (in build):** *Formal Validation of the Zero-Mean-Curvature Invariant for Heat Exchanger Surface Design.* Gyroid TPMS application.
+- **Paper III (methodology hardening):** Oracle audit framework, addressing discrete-K bias and surface-class generalization.
+- **Paper IV (in submission):** Mono-monostatic catalog work extending M. L. Sloan's 2023 analytical Gömböc parameterization, with 13 members reported.
+
+Full author page on arXiv: <https://arxiv.org/a/couey_v_1.html>
+
+Replication of any catalog member, independent extension to a new geometry, or addition of a new invariant is welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for scope, threshold, and coauthorship policy.
+
 ## Key Results
 
 ### Oloid Invariant Vector (5 independent physics measurements)
@@ -53,7 +66,7 @@ modes/                         # Physics simulation modes
 results/                       # Standardized JSON profiles per primitive
 
 # Preprint
-preprint/main.tex              # LaTeX source (arXiv submission pending)
+preprint/main.tex              # LaTeX source (arXiv:2604.12238)
 preprint/fig_comparison.pdf    # Vector figure
 preprint/fig_comparison.py     # Figure generation
 
@@ -93,7 +106,7 @@ The framework classifies geometric forms by what they **guarantee under physical
 
 **Formal vocabulary:** Substrate Geometry, Invariant Primitive, Geometric Failure Mode, Contact Distribution Score, Pass-Gate Validation, Search Family, Invariant Vector.
 
-**Oracle Runner:** Any watertight mesh + invariant definition + operating context → standardized primitive profile with scores across all shared dimensions + unique invariant-specific score.
+**Oracle Runner:** Any watertight mesh plus invariant definition plus operating context yields a standardized primitive profile with scores across all shared dimensions and a unique invariant-specific score.
 
 See `FRAMEWORK.md` for the complete specification.
 
@@ -109,8 +122,10 @@ MIT
 
 ## Citation
 
-> Couey, V. (2026). Computational Validation of the Oloid as a Local Optimum in the Developable Roller Family. *Substrate Geometry Research Program*. arXiv preprint [pending endorsement].
+> Couey, V. (2026). *Computational Validation of the Oloid as a Local Optimum in the Developable Roller Family.* arXiv:2604.12238.
+
+Full author page and companion papers: <https://arxiv.org/a/couey_v_1.html>
 
 ## Acknowledgments
 
-The oloid was discovered by Paul Schatz in 1929. Its developable surface properties were formally proven by Dirnböck and Stachel (1997). This work extends their lineage by providing the formal metric and computational infrastructure that confirms Schatz's finding rigorously.
+The oloid was discovered by Paul Schatz in 1929. Its developable surface properties were formally proven by Dirnböck and Stachel (1997). This work extends their lineage by providing the formal metric and computational infrastructure that confirms Schatz's finding rigorously. The mono-monostatic catalog work in paper IV extends the analytical parameterization established by M. L. Sloan (2023), itself building on the original Gömböc construction of Domokos and Várkonyi (2006) and the conjecture of V. I. Arnold (Hamburg, 1990s).
