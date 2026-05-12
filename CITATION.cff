@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: "If you use this code or the Substrate Geometry methodology in your research, please cite both the software and the canonical paper below."
+type: software
+title: "Substrate Geometry Research Program"
+abstract: "Computational framework for evaluating geometric primitives as engineering substrates, classified by their operational invariants rather than symmetry groups. Implements seven frozen oracle artifacts (contact distribution, parametric search, rigid-body Euler-equation contact, Hertz contact pressure, Basquin S-N fatigue, frictional thermal, Archard wear) and a generalized oracle runner over registered invariants and physics modes."
+authors:
+  - family-names: Couey
+    given-names: Vincent
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/gyapaganda-a11y/substrate-geometry"
+url: "https://arxiv.org/a/couey_v_1.html"
+license: MIT
+keywords:
+  - computational-geometry
+  - engineering-substrates
+  - operational-invariants
+  - oloid
+  - mono-monostatic
+  - Gomboc
+  - constant-width
+  - contact-mechanics
+preferred-citation:
+  type: article
+  title: "Computational Validation of the Oloid as a Local Optimum in the Developable Roller Family"
+  authors:
+    - family-names: Couey
+      given-names: Vincent
+  year: 2026
+  identifiers:
+    - type: other
+      value: "arXiv:2604.12238"
+      description: "arXiv preprint identifier for paper I (oloid validation)"
+references:
+  - type: article
+    title: "Mono-monostatic bodies: the answer to Arnold's question"
+    authors:
+      - family-names: Domokos
+        given-names: Gabor
+      - family-names: Varkonyi
+        given-names: Peter
+    year: 2006
+    journal: "The Mathematical Intelligencer"
+  - type: article
+    title: "Analytical parameterization of the Gomboc"
+    authors:
+      - family-names: Sloan
+        given-names: "M. L."
+    year: 2023
+  - type: article
+    title: "Developable surface properties of the oloid"
+    authors:
+      - family-names: "Dirnbock"
+        given-names: Hans
+      - family-names: Stachel
+        given-names: Hellmuth
+    year: 1997
