@@ -15,6 +15,8 @@ This repository ships the seven frozen oracle artifacts behind **Paper I** (oloi
 
 Full author page on arXiv: <https://arxiv.org/a/couey_v_1.html>
 
+Program hub and broader research portfolio: <https://deepsynthesis.org/work/physics>
+
 Replication of any catalog member, independent extension to a new geometry, or addition of a new invariant is welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for scope, threshold, and coauthorship policy.
 
 ## Key Results
