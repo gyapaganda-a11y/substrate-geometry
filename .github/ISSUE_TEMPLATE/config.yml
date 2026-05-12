@@ -6,3 +6,6 @@ contact_links:
   - name: arXiv author page
     url: https://arxiv.org/a/couey_v_1.html
     about: All papers in the Substrate Geometry program.
+  - name: X (Twitter)
+    url: https://x.com/VincentCouey
+    about: Threads on the work in progress, replication observations, lineage notes.
