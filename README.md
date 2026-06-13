@@ -135,3 +135,58 @@ Full author page and companion papers: <https://arxiv.org/a/couey_v_1.html>
 ## Acknowledgments
 
 The oloid was discovered by Paul Schatz in 1929. Its developable surface properties were formally proven by Dirnböck and Stachel (1997). This work extends their lineage by providing the formal metric and computational infrastructure that confirms Schatz's finding rigorously. The mono-monostatic catalog work in paper IV extends the analytical parameterization established by M. L. Sloan (2023), itself building on the original Gömböc construction of Domokos and Várkonyi (2006) and the conjecture of V. I. Arnold (Hamburg, 1990s).
+
+## Installation
+
+Requires Python 3.9+ and the scientific stack:
+
+```bash
+git clone https://github.com/gyapaganda-a11y/substrate-geometry.git
+cd substrate-geometry
+pip install -r requirements.txt
+```
+
+Runtime dependencies: `numpy`, `scipy`, `trimesh`. (Mesh generation for some
+modes additionally uses `gmsh`/FEniCS; the core oracles and the test suite do
+not require them.)
+
+## Quick start
+
+Score any watertight mesh through the generalized runner. The example uses
+`trimesh` primitives so it runs with no external mesh files:
+
+```python
+import trimesh
+from oracle_runner import run_primitive
+
+mesh     = trimesh.creation.box(extents=(1.0, 1.2, 1.5))
+baseline = trimesh.creation.icosphere(subdivisions=3)
+
+profile = run_primitive(
+    mesh=mesh, invariant="contact_distribution",
+    baseline_mesh=baseline, name="Box", baseline_name="Sphere",
+)
+print(profile.invariant_score)        # the contact-distribution score (CDS)
+print(profile.vector["CDS"].value)    # the shared physics vector
+```
+
+Registered invariants are listed in `invariants/registry.py`; physics modes in
+`modes/registry.py`. Adding a new invariant is writing a scoring function and a
+registry entry, after which the runner discovers it by name.
+
+## Running the tests
+
+```bash
+pip install -r requirements.txt pytest
+pytest -v
+```
+
+The suite exercises the public API on analytically-known cases (discrete
+Gauss-Bonnet, the equilibrium oracle, and the contact-distribution vector) and
+runs in continuous integration on every push.
+
+## Community guidelines
+
+Contributions, bug reports, and replication observations are welcome. See
+[CONTRIBUTING.md](CONTRIBUTING.md) for scope, thresholds, and coauthorship
+policy, and open an issue for questions or problems.
