@@ -4,6 +4,10 @@ type: software
 title: "Substrate Geometry Research Program"
 version: 1.0.0
 date-released: 2026-06-12
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.20674508
+    description: "Zenodo concept DOI (resolves to the latest version)"
 abstract: "Computational framework for evaluating geometric primitives as engineering substrates, classified by their operational invariants rather than symmetry groups. Implements seven frozen oracle artifacts (contact distribution, parametric search, rigid-body Euler-equation contact, Hertz contact pressure, Basquin S-N fatigue, frictional thermal, Archard wear) and a generalized oracle runner over registered invariants and physics modes."
 authors:
   - family-names: Couey
