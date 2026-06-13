@@ -2,11 +2,13 @@ cff-version: 1.2.0
 message: "If you use this code or the Substrate Geometry methodology in your research, please cite both the software and the canonical paper below."
 type: software
 title: "Substrate Geometry Research Program"
+version: 1.0.0
+date-released: 2026-06-12
 abstract: "Computational framework for evaluating geometric primitives as engineering substrates, classified by their operational invariants rather than symmetry groups. Implements seven frozen oracle artifacts (contact distribution, parametric search, rigid-body Euler-equation contact, Hertz contact pressure, Basquin S-N fatigue, frictional thermal, Archard wear) and a generalized oracle runner over registered invariants and physics modes."
 authors:
   - family-names: Couey
     given-names: Vincent
-    orcid: "https://orcid.org/0000-0000-0000-0000"
+    orcid: "https://orcid.org/0009-0005-6869-308X"
 repository-code: "https://github.com/gyapaganda-a11y/substrate-geometry"
 url: "https://arxiv.org/a/couey_v_1.html"
 license: MIT
