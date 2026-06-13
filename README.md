@@ -1,5 +1,7 @@
 # Substrate Geometry Research Program
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20674508.svg)](https://doi.org/10.5281/zenodo.20674508)
+
 **Computational Validation of the Oloid as a Local Optimum in the Developable Roller Family**
 
 A formal framework for evaluating geometric primitives as engineering substrates, classified by their operational invariants rather than symmetry groups.
