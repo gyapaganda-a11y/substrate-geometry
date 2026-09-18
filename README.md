@@ -8,12 +8,14 @@ A formal framework for evaluating geometric primitives as engineering substrates
 
 ## Research Program
 
-This repository ships the seven frozen oracle artifacts behind **Paper I** (oloid validation, arXiv:2604.12238). The broader program covers four published or in-submission papers across rolling primitives, thermal substrates, methodology hardening, and mono-monostatic / constant-width primitives.
+This repository ships the seven frozen oracle artifacts behind the oloid paper (arXiv:2604.12238). The program has four papers on arXiv:
 
-- **Paper I:** *Computational Validation of the Oloid as a Local Optimum in the Developable Roller Family.* arXiv:2604.12238. Backed by the seven oracles in this repo.
-- **Paper II (in build):** *Formal Validation of the Zero-Mean-Curvature Invariant for Heat Exchanger Surface Design.* Gyroid TPMS application.
-- **Paper III (methodology hardening):** Oracle audit framework, addressing discrete-K bias and surface-class generalization.
-- **Paper IV (in submission):** Mono-monostatic catalog work extending M. L. Sloan's 2023 analytical Gömböc parameterization, with 13 members reported.
+- *Computational Validation of the Oloid as a Local Optimum in the Developable Roller Family.* arXiv:2604.12238. Backed by the seven oracles in this repo.
+- *Computational Construction and Engineering Evaluation of Verified Mono-Monostatic Bodies.* arXiv:2604.17095.
+- *Sloan's analytical Gömböc: a strict-convexity-constrained reanalysis.* arXiv:2604.17120 (v2 is the amendment of record: one verified instance, and the verified set is an open regime in the construction parameters with a measured strict-convexity boundary, rather than a discrete list).
+- *Static Equilibria of Perturbed Spheres: A Single-Harmonic Class Map, a Parity Obstruction, and a Certified Counter for the Mono-Monostatic Regime.* arXiv:2608.11213. Code and data: [10.5281/zenodo.21398077](https://doi.org/10.5281/zenodo.21398077).
+
+A methodology working paper on oracle hardening is archived at [10.5281/zenodo.20673964](https://doi.org/10.5281/zenodo.20673964).
 
 Full author page on arXiv: <https://arxiv.org/a/couey_v_1.html>
 
@@ -21,7 +23,7 @@ Program hub and broader research portfolio: <https://deepsynthesis.org/work/phys
 
 Threads on individual papers and replication observations: <https://x.com/VincentCouey>
 
-Replication of any catalog member, independent extension to a new geometry, or addition of a new invariant is welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for scope, threshold, and coauthorship policy.
+Replication of any published result, independent extension to a new geometry, or addition of a new invariant is welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for scope, threshold, and coauthorship policy.
 
 ## Key Results
 
@@ -134,7 +136,7 @@ Full author page and companion papers: <https://arxiv.org/a/couey_v_1.html>
 
 ## Acknowledgments
 
-The oloid was discovered by Paul Schatz in 1929. Its developable surface properties were formally proven by Dirnböck and Stachel (1997). This work extends their lineage by providing the formal metric and computational infrastructure that confirms Schatz's finding rigorously. The mono-monostatic catalog work in paper IV extends the analytical parameterization established by M. L. Sloan (2023), itself building on the original Gömböc construction of Domokos and Várkonyi (2006) and the conjecture of V. I. Arnold (Hamburg, 1990s).
+The oloid was discovered by Paul Schatz in 1929. Its developable surface properties were formally proven by Dirnböck and Stachel (1997). This work extends their lineage by providing the formal metric and computational infrastructure that confirms Schatz's finding rigorously. The mono-monostatic work (arXiv:2604.17095, arXiv:2604.17120) builds on the analytical parameterization established by M. L. Sloan (2023), itself building on the original Gömböc construction of Domokos and Várkonyi (2006) and the conjecture of V. I. Arnold (Hamburg, 1990s).
 
 ## Installation
 

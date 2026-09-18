@@ -7,11 +7,11 @@ This is an independent computational research program. Most academic codebases a
 1. **Extend an existing oracle to a new geometry.** The seven oracle artifacts (contact, parametric search, rigid-body, Hertz, fatigue, thermal, wear) are frozen for paper I reproducibility. New geometries can be scored under any of them by writing a single mesh-loading wrapper.
 2. **Add a new invariant.** `invariants/registry.py` lists current invariant definitions. New invariants need a scoring function and a registry entry. Any invariant grounded in a published physical model is welcome.
 3. **Add a new primitive.** Mesh-bearing primitives can be evaluated by `oracle_runner.py` with no code change. Submit STL via `meshes/` plus a one-paragraph `results/{primitive}.json` template entry.
-4. **Replicate a constant-width / mono-monostatic claim.** The companion paper on mono-monostatic primitives (in submission) reports a 13-member catalog extending M. L. Sloan's 2023 analytical Gömböc parameterization. Independent computational replication of any catalog member is a genuine contribution.
+4. **Replicate a constant-width / mono-monostatic claim.** arXiv:2604.17120 (v2) identifies an open regime of mono-monostatic bodies inside M. L. Sloan's 2023 analytical Gömböc parameterization, bounded by a measured strict-convexity boundary. Independent computational replication of any point in that regime, or of the boundary itself, is a genuine contribution.
 
 ## Coauthorship policy
 
-If your independent extension produces (a) a member #14 of the mono-monostatic catalog, (b) the analog for a related body family (e.g., constant-width Reuleaux solids or non-developable rollers), or (c) a substantive new invariant validated against an existing primitive at the precision documented in the methodology paper, you are invited as coauthor on the next paper covering that result. The threshold is genuine technical contribution, not commentary. Please reach out before deep work so we can coordinate scope and avoid duplicated effort.
+If your independent extension produces (a) a new verified mono-monostatic body outside the known regime, (b) the analog for a related body family (e.g., constant-width Reuleaux solids or non-developable rollers), or (c) a substantive new invariant validated against an existing primitive at the precision documented in the methodology paper, you are invited as coauthor on the next paper covering that result. The threshold is genuine technical contribution, not commentary. Please reach out before deep work so we can coordinate scope and avoid duplicated effort.
 
 ## Provenance and citation
 

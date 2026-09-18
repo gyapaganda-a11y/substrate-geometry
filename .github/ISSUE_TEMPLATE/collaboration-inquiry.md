@@ -12,7 +12,7 @@ Brief description of the relevant work you have done or are doing. Links to pape
 **The extension you propose**
 
 Per CONTRIBUTING.md, eligible extensions are:
-- A member #14 of the mono-monostatic catalog, or a member of a related body family
+- A new verified mono-monostatic body outside the known regime, or a member of a related body family
 - The analog for a related body family (constant-width Reuleaux solids, non-developable rollers, etc.)
 - A substantive new invariant validated against an existing primitive at the precision documented in the methodology paper
 
