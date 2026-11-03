@@ -1,0 +1,16 @@
+{
+  "family": "sloan",
+  "beta": 0.05,
+  "coefficient": 0.0,
+  "k": 1,
+  "grid": [
+    160,
+    320
+  ],
+  "theta_eps": 0.04,
+  "K_min": -0.5650305456204441,
+  "K_max": 1.8351782793463653,
+  "K_mean": 0.9835524100560701,
+  "fraction_K_negative": 0.03953125,
+  "gate_pass": false
+}

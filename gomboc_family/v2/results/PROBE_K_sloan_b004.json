@@ -1,0 +1,61 @@
+{
+  "family": "sloan",
+  "beta": 0.04,
+  "coef": 0.0,
+  "k": 1,
+  "f_type": null,
+  "method": "sympy_analytical",
+  "symbolic_build_seconds": 0.8746600151062012,
+  "resolution_sweep": [
+    {
+      "n_t": 160,
+      "n_p": 320,
+      "compute_seconds": 2.8553621768951416,
+      "K_min": -0.1637148729290754,
+      "K_max": 1.7044556743196089,
+      "K_mean": 0.9893691955430741,
+      "fraction_K_negative": 0.0144921875,
+      "n_finite": 51200,
+      "n_nan": 0,
+      "K_min_location": {
+        "theta": 1.5611686769408406,
+        "phi": 3.2004975158446016,
+        "K": -0.1637148729290754
+      }
+    },
+    {
+      "n_t": 320,
+      "n_p": 640,
+      "compute_seconds": 14.997884273529053,
+      "K_min": -0.1640265014070362,
+      "K_max": 1.7045568713263917,
+      "K_mean": 0.9893207506554924,
+      "fraction_K_negative": 0.014560546875,
+      "n_finite": 204800,
+      "n_nan": 0,
+      "K_min_location": {
+        "theta": 1.5659975922281415,
+        "phi": 3.1710450847171976,
+        "K": -0.1640265014070362
+      }
+    },
+    {
+      "n_t": 640,
+      "n_p": 1280,
+      "compute_seconds": 61.046428203582764,
+      "K_min": -0.1641045227931185,
+      "K_max": 1.704581853971828,
+      "K_mean": 0.9892965300649043,
+      "fraction_K_negative": 0.01453369140625,
+      "n_finite": 819200,
+      "n_nan": 0,
+      "K_min_location": {
+        "theta": 1.5731919391998963,
+        "phi": 3.126866438026091,
+        "K": -0.1641045227931185
+      }
+    }
+  ],
+  "K_min_converged": -0.1641045227931185,
+  "strict_convexity_pass": false
+}

@@ -1,0 +1,56 @@
+{
+  "family": "sloan-radial",
+  "beta": 0.023149,
+  "coef": 0.211721,
+  "k": 1,
+  "f_type": "f4",
+  "method": "analytical_gradient_+_scipy_root_+_hessian_classification",
+  "n_starts_grid": [
+    24,
+    48
+  ],
+  "n_critical_points_total": 6,
+  "n_minima": 2,
+  "n_maxima": 2,
+  "n_saddles": 2,
+  "n_degenerate": 0,
+  "euler_min_minus_saddle_plus_max": 2,
+  "critical_points": [
+    {
+      "theta": 1.071845910506696,
+      "phi": 1.8150365412098834,
+      "R": 1.0388578432190336,
+      "kind": "max"
+    },
+    {
+      "theta": 2.0697467430830967,
+      "phi": 4.468148765969703,
+      "R": 1.0388578432190336,
+      "kind": "max"
+    },
+    {
+      "theta": 1.5707963267948966,
+      "phi": 0.0,
+      "R": 1.0223860181151652,
+      "kind": "saddle"
+    },
+    {
+      "theta": 1.5707963267948966,
+      "phi": 3.141592653589793,
+      "R": 0.9760007970784047,
+      "kind": "saddle"
+    },
+    {
+      "theta": 1.0718459105066964,
+      "phi": 4.956629194799676,
+      "R": 0.9559980120792845,
+      "kind": "min"
+    },
+    {
+      "theta": 2.0697467430830967,
+      "phi": 1.32655611237991,
+      "R": 0.9559980120792845,
+      "kind": "min"
+    }
+  ]
+}

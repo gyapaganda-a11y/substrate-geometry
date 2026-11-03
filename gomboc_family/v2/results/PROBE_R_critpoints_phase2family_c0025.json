@@ -1,0 +1,32 @@
+{
+  "family": "sloan-phase",
+  "beta": 0.0321,
+  "coef": 0.025,
+  "k": 2,
+  "f_type": null,
+  "method": "analytical_gradient_+_scipy_root_+_hessian_classification",
+  "n_starts_grid": [
+    24,
+    48
+  ],
+  "n_critical_points_total": 2,
+  "n_minima": 1,
+  "n_maxima": 1,
+  "n_saddles": 0,
+  "n_degenerate": 0,
+  "euler_min_minus_saddle_plus_max": 2,
+  "critical_points": [
+    {
+      "theta": 1.5707963267948966,
+      "phi": 2.964924040927837e-16,
+      "R": 1.0306608258739438,
+      "kind": "max"
+    },
+    {
+      "theta": 1.5707963267948966,
+      "phi": 3.141592653589793,
+      "R": 0.9662273031531993,
+      "kind": "min"
+    }
+  ]
+}

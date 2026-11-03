@@ -1,0 +1,32 @@
+{
+  "family": "sloan",
+  "beta": 0.01,
+  "coef": 0.0,
+  "k": 1,
+  "f_type": null,
+  "method": "analytical_gradient_+_scipy_root_+_hessian_classification",
+  "n_starts_grid": [
+    24,
+    48
+  ],
+  "n_critical_points_total": 2,
+  "n_minima": 1,
+  "n_maxima": 1,
+  "n_saddles": 0,
+  "n_degenerate": 0,
+  "euler_min_minus_saddle_plus_max": 2,
+  "critical_points": [
+    {
+      "theta": 1.5707963267948961,
+      "phi": 2.2678270980270046e-15,
+      "R": 1.0098534065489688,
+      "kind": "max"
+    },
+    {
+      "theta": 1.5707963267948963,
+      "phi": 3.1415926535897944,
+      "R": 0.989846400767953,
+      "kind": "min"
+    }
+  ]
+}
