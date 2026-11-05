@@ -11,7 +11,7 @@ A formal framework for evaluating geometric primitives as engineering substrates
 This repository ships the seven frozen oracle artifacts behind the oloid paper (arXiv:2604.12238). The program has four papers on arXiv:
 
 - *Computational Validation of the Oloid as a Local Optimum in the Developable Roller Family.* arXiv:2604.12238. Backed by the seven oracles in this repo.
-- *Computational Construction and Engineering Evaluation of Verified Mono-Monostatic Bodies.* arXiv:2604.17095.
+- *Computational Construction and Engineering Evaluation of a Verified Mono-Monostatic Body.* arXiv:2604.17095. Scripts that rebuild the bodies and regenerate the reported results: [`part_iii/`](part_iii/).
 - *Sloan's analytical Gömböc: a strict-convexity-constrained reanalysis.* arXiv:2604.17120 (v2 is the amendment of record: one verified instance, and the verified set is an open regime in the construction parameters with a measured strict-convexity boundary, rather than a discrete list).
 - *Static Equilibria of Perturbed Spheres: A Single-Harmonic Class Map, a Parity Obstruction, and a Certified Counter for the Mono-Monostatic Regime.* arXiv:2608.11213. Code and data: [10.5281/zenodo.21398077](https://doi.org/10.5281/zenodo.21398077).
 
